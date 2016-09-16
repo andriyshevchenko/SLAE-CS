@@ -1,0 +1,12 @@
+D:\C++projects\SystemOfEquations\SystemOfEquations\bin\Debug\SystemOfEquations.exe.config
+D:\C++projects\SystemOfEquations\SystemOfEquations\bin\Debug\SystemOfEquations.exe
+D:\C++projects\SystemOfEquations\SystemOfEquations\bin\Debug\SystemOfEquations.pdb
+D:\C++projects\SystemOfEquations\SystemOfEquations\obj\Debug\SystemOfEquations.csprojResolveAssemblyReference.cache
+D:\C++projects\SystemOfEquations\SystemOfEquations\obj\Debug\SystemOfEquations.exe
+D:\C++projects\SystemOfEquations\SystemOfEquations\obj\Debug\SystemOfEquations.pdb
+G:\Parallel Computing\SystemOfEquations\bin\Debug\SystemOfEquations.exe.config
+G:\Parallel Computing\SystemOfEquations\obj\Debug\SystemOfEquations.exe
+G:\Parallel Computing\SystemOfEquations\obj\Debug\SystemOfEquations.pdb
+G:\Parallel Computing\SystemOfEquations\bin\Debug\SystemOfEquations.exe
+G:\Parallel Computing\SystemOfEquations\bin\Debug\SystemOfEquations.pdb
+G:\Parallel Computing\SystemOfEquations\obj\Debug\SystemOfEquations.csprojResolveAssemblyReference.cache
