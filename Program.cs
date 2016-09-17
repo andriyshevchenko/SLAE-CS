@@ -5,59 +5,51 @@ namespace SystemOfEquations
 {
     internal class Program
     {
-        public static double[][] matrix1;
-        public static double[][] row1;
+        public static double[][] _matrix;
+        public static double[] _row;
 
-        private static void Main(string[] args)
+        private static void Main()
         {
-            var random = new Random();
-
-            var n = random.Next(10);
-
-            matrix1 = GetRandom(random, n, n, 50);
-            row1 = GetRandom(random, 1, n, 50);
             Console.WriteLine("Epsilon is");
-            var eps = Convert.ToDouble(Console.ReadLine());
-            var method = new GaussSeidel(matrix1, row1[0], eps, false);
-            var solution = method.Answer;
+            var eps = Convert.ToDouble("0,00001");
 
-            Print(matrix1);
-            Print(row1);
-            Print(solution);
-            Console.WriteLine(method.Iterations + "iterations");
-
-            for (var i = 0; i < matrix1.GetLength(0); i++)
+            var random = new Random();
+            const int n = 2;
+            Jacobi method;
+            do
             {
-                double sum = 0;
-                for (var j = 0; j < matrix1[0].GetLength(0); j++)
-                {
-                    sum += matrix1[i][j] * solution[j];
-                }
-                if (sum > 0 || sum < 0)
-                {
-                    Console.WriteLine($"{i} - {sum}");
-                }
-            }
+                _row = GetRandomRow(random, 1, n, 50);
+                _matrix = GetRandom(random, n, n, 50);
+                method = new Jacobi(_matrix, _row, eps, false);
+            } while (!method.Converge);
 
+            Print(_matrix, "matrix");
+            Print(_row, "row");
+            Print(method.Answer, "solution");
             Console.ReadLine();
         }
 
-        private static double[][] GetRandom(Random random, int n, int m, int maxValue)
+        private static double[][] GetRandom(Random _random, int _n, int m, int maxValue)
         {
-            var matr = new double[n][];
-            for (var i = 0; i < n; i++)
+            var matr = new double[_n][];
+            for (var i = 0; i < _n; i++)
             {
                 matr[i] = new double[m];
             }
 
-            for (var i = 0; i < n; i++)
+            for (var i = 0; i < _n; i++)
             {
                 for (var j = 0; j < m; j++)
                 {
-                    matr[i][j] = random.Next(1, maxValue);
+                    matr[i][j] = _random.Next(1, maxValue);
                 }
             }
             return matr;
+        }
+
+        private static double[] GetRandomRow(Random _random, int _n, int m, int maxValue)
+        {
+            return GetRandom(_random, 1, m, maxValue)[0];
         }
 
         private static long MeasureExecutionTime(Action method)
@@ -71,11 +63,12 @@ namespace SystemOfEquations
             return watch.ElapsedMilliseconds;
         }
 
-        private static void Print(double[][] matrix)
+        private static void Print(double[][] matrix, string name)
         {
             var n = matrix.GetLength(0);
-            var m = n;
-            Console.WriteLine(n + "x" + m);
+            var m = _matrix[0].GetLength(0);
+            Console.WriteLine(name);
+            Console.WriteLine("{0}x{1}\n", n, m);
             for (var i = 0; i < n; i++)
             {
                 for (var j = 0; j < m; j++)
@@ -84,19 +77,20 @@ namespace SystemOfEquations
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
 
-        private static void Print(double[] matrix)
+        private static void Print(double[] matrix, string name)
         {
             var n = matrix.GetLength(0);
-
-            Console.WriteLine(n);
+            Console.WriteLine(name);
+            Console.WriteLine(n + " x 1\n");
             for (var i = 0; i < n; i++)
             {
                 Console.Write(matrix[i] + " ");
-
                 Console.WriteLine();
             }
+            Console.WriteLine();
         }
     }
 }
