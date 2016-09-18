@@ -43,9 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GaussMethod.cs" />
+    <Compile Include="IterationMethodBase.cs" />
     <Compile Include="Jacobi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelaxationMethod.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,36 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 
 namespace SystemOfEquations
 {
-    public class Jacobi
+    public class Jacobi : IterationMethodBase
     {
-        public Jacobi(double[][] leftPart, double[] rightPart, double epsilon, bool isParallel)
-        {
-            if (Epsilon > 0.1)
-                throw new ArgumentException("epsilon > 0.1", nameof(epsilon));
-
-            Epsilon = epsilon;
-            Answer = new double[rightPart.GetLength(0)];
-            if (isParallel)
-            {
-                TrySolveParallel(leftPart, rightPart);
-                return;
-            }
-
-            TrySolve(leftPart, rightPart);
+        public Jacobi(double[][] leftPart, double[] rightPart, double epsilon, bool isParallel) 
+            : base(leftPart,rightPart,isParallel,epsilon)
+        { 
+            
         }
 
-        public double Epsilon { get; set; }
-        public long Iterations { get; private set; }
-        public double[] Answer { get; private set; }
-
-        public bool Converge => !Answer[0].Equals(double.NaN)
-                                && !double.IsInfinity(Answer[0]);
-
-
-        private void TrySolve(double[][] leftPart, IReadOnlyList<double> rightPart)
+        protected override void TrySolve(double[][] leftPart, IReadOnlyList<double> rightPart)
         {
             var n = leftPart.GetLength(0);
 
@@ -44,8 +25,8 @@ namespace SystemOfEquations
             while (true)
             {
                 if (counter > 10000)
-                //    return;
-                ++counter;
+                    //    return;
+                    ++counter;
 
                 var curr = new double[rightPart.Count];
 
@@ -55,13 +36,13 @@ namespace SystemOfEquations
                     for (var j = 0; j < n; j++)
                     {
                         if (i == j) continue;
-                        curr[i] -= leftPart[i][j] * prev[j];
+                        curr[i] -= leftPart[i][j]*prev[j];
                     }
                     curr[i] /= leftPart[i][i];
                 }
 
                 double error = 0;
-            
+
                 for (var i = 0; i < n; i++)
                 {
                     error += Math.Abs(curr[i] - prev[i]);
@@ -77,7 +58,7 @@ namespace SystemOfEquations
             Iterations = counter;
         }
 
-        private void TrySolveParallel(double[][] leftPart, double[] rightPart)
+        protected override void TrySolveParallel(double[][] leftPart, double[] rightPart)
         {
         }
     }

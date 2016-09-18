@@ -21,6 +21,7 @@ namespace SystemOfEquations
                 _row = GetRandomRow(random, 1, n, 50);
                 _matrix = GetRandom(random, n, n, 50);
                 method = new Jacobi(_matrix, _row, eps, false);
+                method.Solve();
             } while (!method.Converge);
 
             Print(_matrix, "matrix");
