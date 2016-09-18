@@ -1,6 +1,0 @@
-D:\Visual Studio Projects\University\ParallelTask2\bin\Debug\SystemOfEquations.exe.config
-D:\Visual Studio Projects\University\ParallelTask2\bin\Debug\SystemOfEquations.exe
-D:\Visual Studio Projects\University\ParallelTask2\bin\Debug\SystemOfEquations.pdb
-D:\Visual Studio Projects\University\ParallelTask2\obj\Debug\SystemOfEquations.csprojResolveAssemblyReference.cache
-D:\Visual Studio Projects\University\ParallelTask2\obj\Debug\SystemOfEquations.exe
-D:\Visual Studio Projects\University\ParallelTask2\obj\Debug\SystemOfEquations.pdb
