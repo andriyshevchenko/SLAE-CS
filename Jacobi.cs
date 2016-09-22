@@ -3,20 +3,17 @@ using System.Collections.Generic;
 
 namespace SystemOfEquations
 {
-    public class Jacobi : IterationMethodBase
+    public class Jacobi : IterationMethod
     {
-        public Jacobi(double[][] leftPart, double[] rightPart, double epsilon, bool isParallel) 
-            : base(leftPart,rightPart,isParallel,epsilon)
-        { 
-            
+        public Jacobi(double[][] leftPart, double[] rightPart, double epsilon, bool isParallel)
+            : base(leftPart, rightPart, epsilon, isParallel)
+        {
         }
 
         protected override void TrySolve(double[][] leftPart, IReadOnlyList<double> rightPart)
         {
-            var n = leftPart.GetLength(0);
-
             var prev = new double[rightPart.Count];
-            for (var i = 0; i < n; i++)
+            for (var i = 0; i < N; i++)
             {
                 prev[i] = 0;
             }
@@ -30,10 +27,10 @@ namespace SystemOfEquations
 
                 var curr = new double[rightPart.Count];
 
-                for (var i = 0; i < n; i++)
+                for (var i = 0; i < N; i++)
                 {
                     curr[i] = rightPart[i];
-                    for (var j = 0; j < n; j++)
+                    for (var j = 0; j < N; j++)
                     {
                         if (i == j) continue;
                         curr[i] -= leftPart[i][j]*prev[j];
@@ -43,7 +40,7 @@ namespace SystemOfEquations
 
                 double error = 0;
 
-                for (var i = 0; i < n; i++)
+                for (var i = 0; i < N; i++)
                 {
                     error += Math.Abs(curr[i] - prev[i]);
                 }

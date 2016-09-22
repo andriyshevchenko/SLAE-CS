@@ -53,7 +53,6 @@
                 Matrix[MaxElementIndex][i] = Matrix[SortIndex][i];
                 Matrix[SortIndex][i] = Temp;
             }
-
         }
 
         public int SolveParallel()
@@ -69,20 +68,20 @@
                 {
                     if (Matrix[i][i] == 0.0) continue;
 
-                    var MultElement = Matrix[j][i] / Matrix[i][i];
+                    var MultElement = Matrix[j][i]/Matrix[i][i];
                     for (var k = i; k < ColumCount; k++)
-                        Matrix[j][k] -= Matrix[i][k] * MultElement;
-                    RightPart[j] -= RightPart[i] * MultElement;
+                        Matrix[j][k] -= Matrix[i][k]*MultElement;
+                    RightPart[j] -= RightPart[i]*MultElement;
                 }
             }
 
 
-            for (var i = (int)(RowCount - 1); i >= 0; i--)
+            for (var i = (int) (RowCount - 1); i >= 0; i--)
             {
                 Answer[i] = RightPart[i];
 
-                for (var j = (int)(RowCount - 1); j > i; j--)
-                    Answer[i] -= Matrix[i][j] * Answer[j];
+                for (var j = (int) (RowCount - 1); j > i; j--)
+                    Answer[i] -= Matrix[i][j]*Answer[j];
 
                 if (Matrix[i][i] == 0)
                     return RightPart[i] == 0 ? 2 : 1;
@@ -103,20 +102,20 @@
                 for (var j = i + 1; j < RowCount; j++)
                 {
                     if (Matrix[i][i] == 0) continue;
-                    var MultElement = Matrix[j][i] / Matrix[i][i];
+                    var MultElement = Matrix[j][i]/Matrix[i][i];
                     for (var k = i; k < ColumCount; k++)
-                        Matrix[j][k] -= Matrix[i][k] * MultElement;
-                    RightPart[j] -= RightPart[i] * MultElement;
+                        Matrix[j][k] -= Matrix[i][k]*MultElement;
+                    RightPart[j] -= RightPart[i]*MultElement;
                 }
             }
 
 
-            for (var i = (int)(RowCount - 1); i >= 0; i--)
+            for (var i = (int) (RowCount - 1); i >= 0; i--)
             {
                 Answer[i] = RightPart[i];
 
-                for (var j = (int)(RowCount - 1); j > i; j--)
-                    Answer[i] -= Matrix[i][j] * Answer[j];
+                for (var j = (int) (RowCount - 1); j > i; j--)
+                    Answer[i] -= Matrix[i][j]*Answer[j];
 
                 if (Matrix[i][i] == 0)
                     return RightPart[i] == 0 ? 2 : 1;
