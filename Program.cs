@@ -16,7 +16,7 @@ namespace SystemOfEquations
             var random = new Random();
             const int n = 1000;
 
-            _matrix = MatrixHelper.Matrix.GetRandom(n, n, () => random.Next(100));
+           // _matrix = MatrixHelper.Matrix.GetRandom(n, n, () => random.Next(100));
             SolveMethod parallel = new LUDecomposition(_matrix, _row, true);
             SolveMethod serial = new LUDecomposition(_matrix, _row, false);
 
