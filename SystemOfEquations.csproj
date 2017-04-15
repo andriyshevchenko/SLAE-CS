@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{75D1A174-D7A5-4968-A915-26F7A68E85B0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SystemOfEquations</RootNamespace>
     <AssemblyName>SystemOfEquations</AssemblyName>
@@ -32,9 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,24 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConjugateGradientMethod.cs" />
-    <Compile Include="GaussMethod.cs" />
-    <Compile Include="IterationMethod.cs" />
-    <Compile Include="Jacobi.cs" />
-    <Compile Include="LUDecomposition.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="src\ConjugateGradientMethod.cs" />
+    <Compile Include="src\GaussMethod.cs" />
+    <Compile Include="src\IterationMethod.cs" />
+    <Compile Include="src\Jacobi.cs" />
+    <Compile Include="src\LUDecomposition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RelaxationMethod.cs" />
-    <Compile Include="SolveMethodBase.cs" />
+    <Compile Include="src\RelaxationMethod.cs" />
+    <Compile Include="src\SolveMethodBase.cs" />
+    <Compile Include="src\TridiagonalSolve.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MatrixHelper\MatrixHelper.csproj">
-      <Project>{09A992A5-8A9C-4E64-BAF0-BC1CA4E89FF8}</Project>
-      <Name>MatrixHelper</Name>
+    <ProjectReference Include="..\System.Collections.Generic.Functional.Common\System.Collections.Generic.Functional.Common.csproj">
+      <Project>{2a71d2ca-6fef-4152-b74f-26a8cba7b76e}</Project>
+      <Name>System.Collections.Generic.Functional.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\System.Collections.Generic.Functional\System.Collections.Generic.Functional.csproj">
+      <Project>{bf996bd7-4c9b-4035-9024-5580292c04f8}</Project>
+      <Name>System.Collections.Generic.Functional</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\throwables\InputValidation.csproj">
+      <Project>{1c9fea6c-17b6-4698-95b6-34f37429bc20}</Project>
+      <Name>InputValidation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

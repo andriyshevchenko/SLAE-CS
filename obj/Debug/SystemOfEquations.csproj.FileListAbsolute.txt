@@ -1,0 +1,13 @@
+C:\projects\FEM\slar-cs\bin\Debug\SystemOfEquations.dll.config
+C:\projects\FEM\slar-cs\bin\Debug\SystemOfEquations.dll
+C:\projects\FEM\slar-cs\bin\Debug\SystemOfEquations.pdb
+C:\projects\FEM\slar-cs\bin\Debug\System.Collections.Generic.Functional.Common.dll
+C:\projects\FEM\slar-cs\bin\Debug\System.Collections.Generic.Functional.dll
+C:\projects\FEM\slar-cs\bin\Debug\Throwables.dll
+C:\projects\FEM\slar-cs\bin\Debug\System.ValueTuple.dll
+C:\projects\FEM\slar-cs\bin\Debug\System.Collections.Generic.Functional.Common.pdb
+C:\projects\FEM\slar-cs\bin\Debug\System.Collections.Generic.Functional.pdb
+C:\projects\FEM\slar-cs\bin\Debug\Throwables.pdb
+C:\projects\FEM\slar-cs\obj\Debug\SystemOfEquations.csprojResolveAssemblyReference.cache
+C:\projects\FEM\slar-cs\obj\Debug\SystemOfEquations.dll
+C:\projects\FEM\slar-cs\obj\Debug\SystemOfEquations.pdb
