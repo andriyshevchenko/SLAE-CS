@@ -6,7 +6,7 @@ namespace SystemOfEquations
 {
     public class TridiagonalSolve : SolveMethod
     {
-        public TridiagonalSolve(double[][] leftPart, double[] rightPart, bool isParallel) : base(leftPart, rightPart, isParallel)
+        public TridiagonalSolve(double[][] leftPart, double[] rightPart, bool isParallel=false) : base(leftPart, rightPart, isParallel)
         {
         }
 
